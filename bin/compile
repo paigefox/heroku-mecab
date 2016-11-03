@@ -1,0 +1,24 @@
+#!/bin/sh
+
+echo "-----> Installing Mecab"
+
+tar zxfv mecab-0.996.tar.gz
+cd mecab-0.996
+./configure
+make
+make check
+su
+make install
+
+
+echo "-----> Installing Mecab-IPAdic"
+
+tar zxfv mecab-ipadic-2.7.0-20070801.tar.gz
+cd mecab-ipadic-2.7.0-20070801
+./configure
+make
+su
+make install
+
+
+exit 1
