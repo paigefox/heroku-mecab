@@ -23,5 +23,7 @@ cd mecab-ipadic-2.7.0-20070801
 make
 make install
 
+export MECAB_PATH=/app/lib/libmecab.so
+export MECAB_CHARSET=euc-jp
 
 exit 0
