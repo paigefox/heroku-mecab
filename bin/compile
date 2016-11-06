@@ -1,24 +1,26 @@
 #!/bin/sh
 
+PATH=$PATH:/app/bin
+
 echo "-----> Installing Mecab"
 
-wget https://github.com/paigefox/jengo/blob/master/mecab-0.996.tar.gz?raw=true
+wget https://raw.githubusercontent.com/paigefox/jengo/master/mecab-0.996.tar.gz
 tar zxfv mecab-0.996.tar.gz
 cd mecab-0.996
-./configure
+./configure --prefix=/app/
 make
 make check
-su
 make install
 
 
 echo "-----> Installing Mecab-IPAdic"
 
+cd ~
+wget https://raw.githubusercontent.com/paigefox/jengo/master/mecab-ipadic-2.7.0-20070801.tar.gz
 tar zxfv mecab-ipadic-2.7.0-20070801.tar.gz
 cd mecab-ipadic-2.7.0-20070801
-./configure
+./configure --prefix=/app/
 make
-su
 make install
 
 
