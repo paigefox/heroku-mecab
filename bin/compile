@@ -1,5 +1,6 @@
 #!/bin/sh
 
+BUILD_DIR=$1
 PATH=$PATH:/app/bin
 
 echo "-----> Installing Mecab"
@@ -22,5 +23,10 @@ cd mecab-ipadic-2.7.0-20070801
 ./configure --prefix=$BUILD_DIR/
 make
 make install
+
+PROFILE_PATH="$BUILD_DIR/.profile.d/mecab.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+echo "export MECAB_PATH=$BUILD_DIR/lib/libmecab.so" >> $PROFILE_PATH
+echo 'export MECAB_CHARSET=euc-jp' >> $PROFILE_PATH
 
 exit 0
